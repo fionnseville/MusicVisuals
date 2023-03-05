@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name:Cathal Small, Fionn Seville, Lilja O'Byrne
 
-Student Number: 
+Student Number: C21414822, C21383891. C21385003
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
