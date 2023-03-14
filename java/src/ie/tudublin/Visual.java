@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 
-public abstract class Visual extends PApplet
+public class Visual extends PApplet
 {
 	private int frameSize = 512;
 	private int sampleRate = 44100;
@@ -81,14 +81,31 @@ public abstract class Visual extends PApplet
 
 	public void startListening()
 	{
-		ai = minim.getLineIn(Minim.MONO, frameSize, 44100, 16);
-		ab = ai.left;
+		//ai = minim.getLineIn(Minim.MONO, frameSize, 44100, 16);
+		//ab = ai.left;
+		ap.play();
 	}
 
 	public void loadAudio(String filename)
 	{
 		ap = minim.loadFile(filename, frameSize);
 		ab = ap.mix;
+	}
+
+	public void settings(){
+		size(1024, 1000, P3D);
+	}
+
+	public void setup(){
+		startMinim();
+		loadAudio("heroplanet.mp3");
+		startListening();
+	}
+
+	public void draw(){
+
+		background(0);
+		
 	}
 
 	public int getFrameSize() {
