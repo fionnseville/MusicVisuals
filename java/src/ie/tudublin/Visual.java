@@ -12,6 +12,8 @@ public class Visual extends PApplet
 	private float[] bands;
 	private float[] smoothedBands;
 
+	private int mode;
+
 	private Minim minim;
 	private AudioInput ai;
 	private AudioPlayer ap;
@@ -21,7 +23,11 @@ public class Visual extends PApplet
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
 
-	
+	public void keyPressed(){
+		if(key >= '0' && key <= '9'){
+			mode = key - '0';
+		}
+	}
 	
 	public void startMinim() 
 	{
@@ -105,6 +111,11 @@ public class Visual extends PApplet
 	public void draw(){
 
 		background(0);
+
+		switch (mode) {
+			case 0: 
+				
+		}
 		
 	}
 
