@@ -104,7 +104,7 @@ public class Visual extends PApplet
 
 	public void setup(){
 		startMinim();
-		loadAudio("heroplanet.mp3");
+		loadAudio("stayinalive.mp3");
 		startListening();
 	}
 
