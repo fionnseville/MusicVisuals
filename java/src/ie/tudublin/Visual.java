@@ -104,7 +104,7 @@ public class Visual extends PApplet
 
 	public void setup(){
 		startMinim();
-		loadAudio("stayinalive.mp3");
+		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
 		startListening();
 	}
 
