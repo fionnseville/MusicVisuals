@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 
-public class Visual extends PApplet
+public abstract class Visual extends PApplet
 {
 	private int frameSize = 512;
 	private int sampleRate = 44100;
@@ -12,7 +12,8 @@ public class Visual extends PApplet
 	private float[] bands;
 	private float[] smoothedBands;
 
-	private int mode;
+	float theta = 0;
+    float r = 0;
 
 	private Minim minim;
 	private AudioInput ai;
@@ -23,12 +24,6 @@ public class Visual extends PApplet
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
 
-	public void keyPressed(){
-		if(key >= '0' && key <= '9'){
-			mode = key - '0';
-		}
-	}
-	
 	public void startMinim() 
 	{
 		minim = new Minim(this);
@@ -100,23 +95,6 @@ public class Visual extends PApplet
 
 	public void settings(){
 		size(1024, 1000, P3D);
-	}
-
-	public void setup(){
-		startMinim();
-		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
-		startListening();
-	}
-
-	public void draw(){
-
-		background(0);
-
-		switch (mode) {
-			case 0: 
-				
-		}
-		
 	}
 
 	public int getFrameSize() {
