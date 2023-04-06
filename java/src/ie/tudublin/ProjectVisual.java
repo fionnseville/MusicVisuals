@@ -8,7 +8,7 @@ public class ProjectVisual extends Visual {
 
     public void settings(){
 		//size(1024, 1000, P3D);
-        fullScreen(P3D);
+        fullScreen(P3D,SPAN);
 	}
 
 	public void setup(){
