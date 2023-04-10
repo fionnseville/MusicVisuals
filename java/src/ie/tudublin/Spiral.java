@@ -31,7 +31,7 @@ public class Spiral extends Poly{
             //v.square(x + v.width/2, y + v.height/2, v.getSmoothedAmplitude() * 1000);
            //v.line(x+v.width/2 , y + v.height/2, x+v.width/2 * i, y + v.height/2 * i);
            //v.translate(x + v.width/2, y + v.height/2);
-           //v.sphere(v.getSmoothedAmplitude() * 1000);
+           //v.box(v.getSmoothedAmplitude() * 1000);
             v.popMatrix();
         }
 
