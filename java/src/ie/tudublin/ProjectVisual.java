@@ -18,6 +18,7 @@ public class ProjectVisual extends Visual {
 	}
 
     Poly test = new Test(this);
+    Poly testing = new Testing(this);
 
 	public void draw(){
     
