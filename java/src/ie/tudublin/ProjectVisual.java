@@ -1,10 +1,13 @@
 package ie.tudublin;
 
+import processing.core.PShape;
+
 public class ProjectVisual extends Visual {
 
     //private int mode = 0;
     
-    
+    PShape eye;
+    PShape grave;
 
     public void settings(){
 		//size(1024, 1000, P3D);
@@ -15,6 +18,9 @@ public class ProjectVisual extends Visual {
         colorMode(HSB,360,100,100);
 		startMinim();
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
+        eye = loadShape("eyeball.obj");
+        grave = loadShape("gravestone.obj");
+        noiseSeed(0l);
 		startListening();
 	}
     
@@ -22,6 +28,7 @@ public class ProjectVisual extends Visual {
     float distanceChange = 0.001f;
 
     Poly spiral = new Spiral(this);
+    Poly spiral2 = new Spiral2(this);
 
 
 	public void draw(){
@@ -44,7 +51,8 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-       spiral.render();
+        spiral.render();
+        //graves.render();
     }   
     
 }
