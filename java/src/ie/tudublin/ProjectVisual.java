@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ProjectVisual extends Visual {
 
     private int mode = 0;
+    public int branchCounter; //keeps track of how many braches are in each tree
 
     public void settings(){
 		size(1024, 1024, P3D);
@@ -19,6 +20,7 @@ public class ProjectVisual extends Visual {
 
     Poly test = new Test(this);
     Poly testing = new Testing(this);
+    //Poly tree = new Tree(this);
 
 	public void draw(){
     
