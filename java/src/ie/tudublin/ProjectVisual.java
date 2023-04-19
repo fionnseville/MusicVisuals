@@ -6,9 +6,11 @@ public class ProjectVisual extends Visual {
 
     private int mode = 0;
     public int branchCounter; //keeps track of how many braches are in each tree
+    public float fCounter;
 
     public void settings(){
-		size(1024, 1024, P3D);
+		//size(1024, 1024, P3D);
+        fullScreen();
 	}
 
 	public void setup(){
@@ -40,7 +42,7 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        test.render();
+        testing.render();
       
       
     }   
