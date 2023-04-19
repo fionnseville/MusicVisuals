@@ -29,6 +29,7 @@ public class ProjectVisual extends Visual {
 
     Poly spiral = new Spiral(this);
     Poly spiral2 = new Spiral2(this);
+    Poly graves = new Grave(this);
 
 
 	public void draw(){
@@ -52,7 +53,7 @@ public class ProjectVisual extends Visual {
         calculateAverageAmplitude();        
        
         spiral.render();
-        //graves.render();
+       // graves.render();
     }   
     
 }
