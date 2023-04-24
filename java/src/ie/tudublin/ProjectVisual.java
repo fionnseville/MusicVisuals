@@ -20,9 +20,8 @@ public class ProjectVisual extends Visual {
 		startListening();
 	}
 
-    Poly test = new Test(this);
-    Poly testing = new Testing(this);
-    //Poly tree = new Tree(this);
+   
+    Poly spiral = new Spiral(this);
 
 	public void draw(){
     
@@ -42,8 +41,8 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        testing.render();
-      
+        //test.render();
+        spiral.render();
       
     }   
     
