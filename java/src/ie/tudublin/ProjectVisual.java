@@ -1,5 +1,8 @@
 package ie.tudublin;
 
+import ddf.minim.Minim;
+import javazoom.jl.player.Player;
+import processing.core.PImage;
 import processing.core.PShape;
 
 public class ProjectVisual extends Visual {
@@ -8,6 +11,7 @@ public class ProjectVisual extends Visual {
     
     PShape eye;
     PShape grave;
+    PImage texture;
 
     public void settings(){
 		//size(1024, 1000, P3D);
@@ -18,8 +22,11 @@ public class ProjectVisual extends Visual {
         colorMode(HSB,360,100,100);
 		startMinim();
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
-        eye = loadShape("eyeball.obj");
-        grave = loadShape("gravestone.obj");
+        minim = new Minim(this);
+        player =minim.loadFile("Bee Gees - Stayin' Alive (Official Music Video).wav");
+        //eye = loadShape("eyeball.obj");
+        //grave = loadShape("gravestone.obj");
+        texture = loadImage("gravestone.mtl");
         noiseSeed(0l);
 		startListening();
 	}
@@ -30,7 +37,7 @@ public class ProjectVisual extends Visual {
     Poly spiral = new Spiral(this);
     Poly spiral2 = new Spiral2(this);
     Poly graves = new Grave(this);
-
+    Poly cubes = new Cubesquared(this);
 
 	public void draw(){
 
@@ -52,8 +59,9 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        spiral.render();
-       // graves.render();
+        //spiral.render();
+        //graves.render();
+        cubes.render();
     }   
     
 }
