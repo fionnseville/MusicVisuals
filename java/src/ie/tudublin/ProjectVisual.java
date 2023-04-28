@@ -2,11 +2,11 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+import ddf.minim.analysis.BeatDetect;
+
 public class ProjectVisual extends Visual {
 
     private int mode = 0;
-    public int branchCounter; //keeps track of how many braches are in each tree
-    public float fCounter;
 
     public void settings(){
 		//size(1024, 1024, P3D);
@@ -16,12 +16,17 @@ public class ProjectVisual extends Visual {
 	public void setup(){
         colorMode(HSB,360,100,100);
 		startMinim();
+        rectMode(CENTER); 
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
+        beat = new BeatDetect(getAudioPlayer().bufferSize(), getAudioPlayer().sampleRate());
+        beat.setSensitivity(300);
+        bl = new BeatListener(beat, getAudioPlayer());
 		startListening();
 	}
 
    
     Poly spiral = new Spiral(this);
+    Poly bloom = new Bloom(this);
 
 	public void draw(){
     
@@ -41,7 +46,6 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        //test.render();
         spiral.render();
       
     }   
