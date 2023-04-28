@@ -13,9 +13,12 @@ public class ProjectVisual extends Visual {
 		startMinim();
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
 		startListening();
+        colorMode(HSB, 360, 100, 100);
 	}
 
     Poly spiral = new Spiral(this);
+    Poly space = new Space(this);
+    Poly disco = new insideDiscoBall(this);
 
 	public void draw(){
     
@@ -30,11 +33,15 @@ public class ProjectVisual extends Visual {
             e.printStackTrace();
         }
         // Call this is you want to use frequency bands
+        //
         calculateFrequencyBands(); 
 
         // Call this is you want to get the average amplitude
+        //will pulse an object with music volume
         calculateAverageAmplitude();        
-        spiral.render(); 
+        //spiral.render();
+        disco.render(); 
+        //space.render();
     }   
     
 }
