@@ -46,7 +46,7 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        bloom.render();
+        spiral.render();
       
     }   
     
