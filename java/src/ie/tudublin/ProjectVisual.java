@@ -10,7 +10,7 @@ public class ProjectVisual extends Visual {
 
     public void settings(){
 		//size(1024, 1024, P3D);
-        fullScreen();
+        fullScreen(SPAN);
 	}
 
 	public void setup(){
@@ -19,7 +19,7 @@ public class ProjectVisual extends Visual {
         rectMode(CENTER); 
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
         beat = new BeatDetect(getAudioPlayer().bufferSize(), getAudioPlayer().sampleRate());
-        beat.setSensitivity(300);
+        beat.setSensitivity(10);
         bl = new BeatListener(beat, getAudioPlayer());
 		startListening();
 	}
@@ -46,7 +46,7 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        spiral.render();
+        bloom.render();
       
     }   
     
