@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import ddf.minim.*;
+import ddf.minim.analysis.BeatDetect;
 import ddf.minim.analysis.FFT;
 
 public abstract class Visual extends PApplet
@@ -14,12 +15,23 @@ public abstract class Visual extends PApplet
 
 	private Minim minim;
 	private AudioInput ai;
-	private AudioPlayer ap;
+	 AudioPlayer ap;
 	private AudioBuffer ab;
 	private FFT fft;
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
+
+	//AudioPlayer player;
+    public BeatDetect getBeat() {
+		return beat;
+	}
+
+	public void setBeat(BeatDetect beat) {
+		this.beat = beat;
+	}
+
+	BeatDetect beat;
 
 	public void startMinim() 
 	{
@@ -81,11 +93,13 @@ public abstract class Visual extends PApplet
 	{
 		//ai = minim.getLineIn(Minim.MONO, frameSize, 44100, 16);
 		//ab = ai.left;
+		//ap.loop();
 		ap.play();
 	}
 
 	public void loadAudio(String filename)
 	{
+		//ap = minim.loadFile(sketchPath("Bee Gees - Stayin' Alive (Official Music Video).wav"));
 		ap = minim.loadFile(filename, frameSize);
 		ab = ap.mix;
 	}

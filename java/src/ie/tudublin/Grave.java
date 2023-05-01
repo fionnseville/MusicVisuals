@@ -10,7 +10,7 @@ public class Grave extends Poly {
         v.lights();
         //v.translate((v.width/2)-50,(v.height/2)-150);
         v.stroke(255);
-        //v.box(100);
+        
 
         v.translate((v.width / 2)-50, (v.height/2)+150);
         v.rotateX(600);
@@ -19,7 +19,7 @@ public class Grave extends Poly {
         //v.fill(198,0,19);
         v.shape(v.grave);
         v.lights();
-        //v.texture(v.texture);
+        
         
     }
     
