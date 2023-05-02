@@ -1,49 +1,81 @@
-package ie.tudublin;
-
-import ddf.minim.ugens.Noise;
 import processing.core.PApplet;
-import processing.core.PShape;
 
 public class Spiral extends Poly{
 
-   float theta;
-   float radius;
-   float xoff;
-   float xincrement = 0.01f;
-   
+  float angle;
+  float[] lerpedBuffer;
+  float lerpedAverage = 0;
+  float total = 0;
+  
+  public Spiral(ProjectVisual v){
+    super(v);
+    lerpedBuffer = new float [v.width];
+    
+  }
 
-    public Spiral(ProjectVisual v){
-        super(v);
-    }
+  
+  
+  @Override
+  public void render(){
+    v.background(0);
 
-   
+    float x = v.width;
+    float diameter = 150;
+    int num = 100;
+    float cRange;
+    
 
-    @Override
-    public void render(){
-        //NOTE: ON BEAT SWITCH BETWEEN FILL AND NOFILL
-        for(int i = 0; i< v.getAudioBuffer().size(); i++){
-            v.pushMatrix();
-            v.noFill();
-            float c = PApplet.map(i, 0, v.getAudioBuffer().size() , 0, 255);
-            //v.fill(c,255,255);
-            v.stroke(c,255,255);
-            //theta = PApplet.map(i, 0, v.getAudioBuffer().size(),0 , PApplet.TWO_PI*10);
-            //radius = PApplet.map(i, 0, v.getAudioBuffer().size(), 100, 1000);
-            theta = PApplet.map(i, 0, v.getAudioBuffer().size(),0 , PApplet.TWO_PI*100);
-            radius = PApplet.map(i, 0, v.getAudioBuffer().size(), 100, 1000);
-            float x = PApplet.sin(theta) * radius; // calculates the x co-ordinate of the next circle within the spiral
-            float y = PApplet.cos(theta) * radius; // calculates the y co-ordinate of the next circle within the spiral
-            v.circle(x+v.width/2, y+v.height/2, v.getSmoothedAmplitude()* 1000);
-            //v.translate(v.width/2, v.height/2);
-            //v.scale(10);
-            //v.shape(v.eye);
-            //v.square(x + v.width/2, y + v.height/2, v.getSmoothedAmplitude() * 1000);
-           //v.line(x+v.width/2 , y + v.height/2, x+v.width/2 * i, y + v.height/2 * i);
-           //v.translate(x + v.width/2, y + v.height/2);
-           //v.box(v.getSmoothedAmplitude() * 1000);
-            v.popMatrix();
+    v.translate(v.width/2, v.height/2);
+    
+    for(float a = 0; a<360; a+=22.5f){ //used to create circular rotation lower value for 'a' means more cirles and tighter rotation can also cause lag if too low
+      v.rotate(-ProjectVisual.radians(a));
+      v.noStroke();
+      v.pushMatrix();
+      
+      for (int i=0; i <num; i++){ //used for drawing the circles and to allow for rotation in positive direction
+        if(v.beat.isKick()){
+          cRange = 2000;
         }
-
+        else{
+          cRange = 3000;
+        }
+        diameter = v.getSmoothedAmplitude() * 600; //diametre of ellipse linked to song
+        float c = PApplet.map(i,0, v.getAudioBuffer().size() , 0, cRange);
+        //v.fill(v.getAudioBuffer().get(i)*i*i*i,100,100);
+        v.fill(c,100,100);
+        v.scale(0.95f); //0.95-og //0.98 // 0.5 //0.8
+        v.rotate(ProjectVisual.radians(angle)/2);// /2
+        v.ellipse(x, 0, diameter, diameter); //first two x,y second width height
+        
+      }
+      v.popMatrix();
+      
+      v.pushMatrix();
+      for (int i=0; i <num; i++){ //used for drawing the circles and to allow for rotation in negative direction
+        
+        if(v.beat.isKick()){ //changes colour range if a kick drum is detected in the song
+          cRange = 2000;
+        }
+        else{
+          cRange = 3000;
+        }
+          diameter = v.getSmoothedAmplitude() * 600;
+          float c = PApplet.map(i, 0, v.getAudioBuffer().size() , 0, cRange);
+          //v.fill(v.getAudioBuffer().get(i)*i*i*i,150,250);
+          v.fill(c,150,250);
+          v.scale(0.95f); //0.95-og //.98 // 0.5f //0.8
+          v.rotate(-ProjectVisual.radians(angle)/2); //reverses angle of rotation
+          v.ellipse(x, 0, diameter, diameter); //first two x,y second width height
+        
+      }
+      v.popMatrix();
+       
     }
 
+    angle+=(PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 1f)); //maps the rotation speed to the smoothedAmplitude
+      
+  }
+
+    
+    
 }

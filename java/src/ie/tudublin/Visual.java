@@ -1,8 +1,12 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+
+import java.beans.beancontext.BeanContextServicesListener;
+
 import ddf.minim.*;
-import ddf.minim.analysis.BeatDetect;
+
+import ddf.minim.analysis.*;
 import ddf.minim.analysis.FFT;
 
 public abstract class Visual extends PApplet
@@ -18,6 +22,8 @@ public abstract class Visual extends PApplet
 	 AudioPlayer ap;
 	private AudioBuffer ab;
 	private FFT fft;
+	BeatDetect beat;
+	BeatListener bl;
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
@@ -160,4 +166,27 @@ public abstract class Visual extends PApplet
 	public FFT getFFT() {
 		return fft;
 	}
+}
+
+class BeatListener implements AudioListener
+{
+  private BeatDetect beat;
+  private AudioPlayer source;
+  
+  BeatListener(BeatDetect beat, AudioPlayer source)
+  {
+    this.source = source;
+    this.source.addListener(this);
+    this.beat = beat;
+  }
+  
+  public void samples(float[] samps)
+  {
+    beat.detect(source.mix);
+  }
+  
+  public void samples(float[] sampsL, float[] sampsR)
+  {
+    beat.detect(source.mix);
+  }
 }
