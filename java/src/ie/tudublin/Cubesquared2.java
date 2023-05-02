@@ -1,8 +1,6 @@
 package ie.tudublin;
 
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
-import ddf.minim.analysis.BeatDetect;
+
 import processing.core.PApplet;
 
 public class Cubesquared2 extends Poly{

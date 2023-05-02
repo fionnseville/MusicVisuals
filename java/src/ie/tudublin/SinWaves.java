@@ -1,4 +1,7 @@
 package ie.tudublin;
+
+import processing.core.PApplet;
+
 public class SinWaves extends Poly{
 
     public SinWaves(ProjectVisual v) {
@@ -32,9 +35,9 @@ public class SinWaves extends Poly{
                 //float offsetX = x * 40;
                 //float offsetY = y * 40;
                 //float offsetZ = z * 40;
-                float distance = v.dist(0, 0, offsetX, offsetY);//calculates distance between the origin and the x and y offsets.
+                float distance = PApplet.dist(0, 0, offsetX, offsetY);//calculates distance between the origin and the x and y offsets.
                 //boxSize=20;
-                boxSize = (v.sin(v.radians(angle + distance))+1) * 20;//edits box size along a sin wave continously to appear like its fading 
+                boxSize = (PApplet.sin(PApplet.radians(angle + distance))+1) * 20;//edits box size along a sin wave continously to appear like its fading 
                 v.pushMatrix();
                 v.translate(offsetX, offsetY, offsetZ-400);
                 v.fill((offsetX + v.frameCount) % 255, (offsetY + v.frameCount) % 255, (offsetZ + v.frameCount) % 255);

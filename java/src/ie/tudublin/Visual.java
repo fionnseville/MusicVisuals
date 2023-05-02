@@ -1,11 +1,7 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
-
-import java.beans.beancontext.BeanContextServicesListener;
-
 import ddf.minim.*;
-
 import ddf.minim.analysis.*;
 import ddf.minim.analysis.FFT;
 

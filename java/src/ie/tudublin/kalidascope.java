@@ -35,10 +35,10 @@ public class kalidascope extends Poly
             //create multiple octogons as one shape
             //until they are in a circular pattern.
             // div twopi for how many sides in the shape, 8 = octogon
-            for(float a = 0; a < v.TWO_PI; a+=v.TWO_PI/8)
+            for(float a = 0; a < PApplet.TWO_PI; a+=PApplet.TWO_PI/8)
             {
-                float x = radius * v.cos(a);
-                float y =  radius * v.sin(a);
+                float x = radius * PApplet.cos(a);
+                float y =  radius * PApplet.sin(a);
                 //changes stroke weight on beat
                 if(v.beat.isHat())
                 {

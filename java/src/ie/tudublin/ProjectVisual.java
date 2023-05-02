@@ -1,15 +1,11 @@
 package ie.tudublin;
 
-import ddf.minim.Minim;
 import ddf.minim.analysis.BeatDetect;
-import javazoom.jl.player.Player;
-import processing.core.PImage;
-import processing.core.PShape;
 
 
 public class ProjectVisual extends Visual {
 
-    private int mode = 0;
+   
     Poly play;
 
     public void settings(){
@@ -67,6 +63,14 @@ public class ProjectVisual extends Visual {
         if (key =='4')
         {
             play = new Spiral(this);
+        }
+
+        if(key == '5'){
+            play = new Cubesquared2(this);
+        }
+
+        if(key == '6'){
+            play = new SinWaves(this);
         }
 
         if(key =='r' || key =='R'){ //allows for the song to be  started again from the beginning

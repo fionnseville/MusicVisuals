@@ -17,7 +17,7 @@ public class Grave extends Poly {
         v.rotateY(525);
         v.scale(400);
         //v.fill(198,0,19);
-        v.shape(v.grave);
+        //v.shape(v.grave);
         v.lights();
         
         

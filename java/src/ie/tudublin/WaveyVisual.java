@@ -52,17 +52,17 @@ public class WaveyVisual extends Poly{
 
     public void draw(int i, float rotation) {
         v.pushMatrix();
-        float x = v.sin((rotation + i) / 10) * 200;//use of changing variables rotation and i makes loop spin in a sinusoidal wave along its x axis
-        float y = v.cos((rotation + i) / 10) * 200;
-        float z = v.sin((rotation + i) / 5) * 100;
+        float x = PApplet.sin((rotation + i) / 10) * 200;//use of changing variables rotation and i makes loop spin in a sinusoidal wave along its x axis
+        float y = PApplet.cos((rotation + i) / 10) * 200;
+        float z = PApplet.sin((rotation + i) / 5) * 100;
         v.translate(x, y, z);
 
-        float boxSize = v.cos((rotation + i) / 10) *20 ;
+        float boxSize = PApplet.cos((rotation + i) / 10) *20 ;
         //v.scale(scalefactor);
         v.box(boxSize);
         for (int j = 0; j < 8; j++) {//this loop creates a circle of boxes around the central box
             v.pushMatrix();
-            v.rotateY(v.radians(j * 45));
+            v.rotateY(PApplet.radians(j * 45));
             v.translate(boxSize * 1.2f, 0, 0);
             v.box(boxSize* 0.4f);
             v.popMatrix();

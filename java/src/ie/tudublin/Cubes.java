@@ -34,7 +34,7 @@ public class Cubes extends Poly
         for(int i = 0; i < 200;i++)
         {
             v.push();
-            v.rotate(v.sin(v.frameCount+i)*100);
+            v.rotate(PApplet.sin(v.frameCount+i)*100);
             //colour map
             float c = PApplet.map(count, 0, v.getAudioBuffer().size() , 100, 400);
             v.stroke(c,150,200);
@@ -59,14 +59,14 @@ public class Cubes extends Poly
     {
         float count = 0;
         //position is PI div by 34, so boxes aren't on top of eachother.
-        float pos = v.PI/34;
+        float pos = PApplet.PI/34;
         float angle = 0;
         
         //after 5 seconds the main box gets smaller until its 300 at a rate of 0.008f
         if(v.millis() - start > 5000)
         {
             //starts big and gets smaller after 5 seconds
-            sizeBox = v.lerp(sizeBox, 300, 0.008f);
+            sizeBox = PApplet.lerp(sizeBox, 300, 0.008f);
         }
         //cubes rotataing on diff angles to give effect they are enveloped in eachother
         for(int i= 0; i < 70; i++)
@@ -77,7 +77,7 @@ public class Cubes extends Poly
             v.translate(v.width/2, v.height/2);
             v.fill(c, 150, 200);
             //rotates boxes on X + Y axis. This way we see the shape on its side. This doesn't move the shape, just positions it
-            v.rotateY(angle + pos *i*v.sin(angle)+10);
+            v.rotateY(angle + pos *i*PApplet.sin(angle)+10);
             v.rotateX(angle/2 + pos*i+10);
             //rotate allows for movement
             v.rotate(PApplet.radians(v.frameCount));
