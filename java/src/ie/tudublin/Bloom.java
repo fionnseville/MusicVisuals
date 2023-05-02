@@ -5,9 +5,6 @@ import processing.core.PApplet;
 public class Bloom extends Poly{
 
     float angle;
-    float x;
-    float y;
-
 
     public Bloom(ProjectVisual v){
         super(v);
@@ -45,18 +42,6 @@ public class Bloom extends Poly{
             
         }
         v.popMatrix();
-
-        /*v.pushMatrix();
-        for(int i = 0; i < 200; i++){
-            v.fill(v.getAudioBuffer().get(i),50,100);
-            v.scale(0.98f);
-            v.rotate(PApplet.radians(angle));
-
-            v.rect(0,0,v.getSmoothedAmplitude()*5000,v.getSmoothedAmplitude()*5000);
-            
-        }
-        v.popMatrix();
-        */
         
         angle+=(PApplet.map(v.getAmplitude(), 0, 1.0f, 0, 2f));
     }

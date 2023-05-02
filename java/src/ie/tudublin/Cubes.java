@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class Cubes extends Poly
 {
     float start = v.millis();
-    float sizeBox = 400;
+    float sizeBox = 1000;
     float sizeRect = 10;
 
     public Cubes(ProjectVisual v)
@@ -66,7 +66,7 @@ public class Cubes extends Poly
         if(v.millis() - start > 5000)
         {
             //starts big and gets smaller after 5 seconds
-            //sizeBox = v.lerp(sizeBox, 300, 0.008f);
+            sizeBox = v.lerp(sizeBox, 300, 0.008f);
         }
         //cubes rotataing on diff angles to give effect they are enveloped in eachother
         for(int i= 0; i < 70; i++)
