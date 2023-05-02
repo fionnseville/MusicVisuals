@@ -19,7 +19,7 @@ For my portion of the assignment, I was in charge of setting up the files with p
 # Instructions
 
 # How it works
-# Cathal:
+# CATHAL:
 ## Spiral.java: 
 This uses two for loops,each of which contribute a different aspect to the spiral. The outer loop sets the number of "strands" of the inner loops by rotating the whole visual by a fixed constantly increasing amount. By rasing or lowering the value of the index variable "a" in the for loop, you can increase or decrease the amount of spirals and change the pattern created by the rotations. The outer for loop also maps the angle of rotation to the SmoothedAmplitude allowing for the rotation of the spirals to sync to the music. The inner for loops are used to create the spiral itself. Each iteration will draw a circle, the diameter and colour of which is synced to the song, and rotate by the angle calculated in the outer for loop. BeatDetect is used to change the colour range of the spiral too. When a kick is detected in the song, the spiral will flash with a different range of colours.
 
