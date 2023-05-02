@@ -17,6 +17,11 @@ Student Number: C21414822, C21383891, C21385033
 For my portion of the assignment, I was in charge of setting up the files with polymorphism as well as creating two visuals. The first of these visuals was Spiral.java. The circles that make up this spiral all change size based on the SmoothedAmplitude with the rotation of it being mapped to SmoothAmplitude too. The second visual I made was Bloom.java, which was done to represent a flower. The flower is made up of rectangles that scale and rotate in sync to the music. There is also a colour change occurning at the centre of the flower, which creates a pistil. This pistil is also synced to the music.
 
 # Instructions
+## KeyPressed
+A KeyPressed function is used to swap between the visuals
+Pressing a number between 1 and 6 will change the visual playing at that time
+Pressing space will pause the song and pressing it again will resume from where you paused it.
+If you want to restart the song, you can press r or R.
 
 # How it works
 ## CATHAL:
