@@ -83,5 +83,5 @@ public class Spiral extends Poly{
   }
 
     
-
+    
 }

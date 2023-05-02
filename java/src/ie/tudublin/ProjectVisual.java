@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+
 import ddf.minim.analysis.BeatDetect;
 
 public class ProjectVisual extends Visual {
@@ -22,13 +23,12 @@ public class ProjectVisual extends Visual {
         beat.setSensitivity(10);
         bl = new BeatListener(beat, getAudioPlayer());
 		startListening();
+        colorMode(HSB, 360, 100, 100);
 	}
 
-   
     Poly spiral = new Spiral(this);
+    Poly kal = new kalidascope(this);
     Poly bloom = new Bloom(this);
-
-    Poly thing;
 
 	public void draw(){
     
@@ -43,13 +43,43 @@ public class ProjectVisual extends Visual {
             e.printStackTrace();
         }
         // Call this is you want to use frequency bands
+        //
         calculateFrequencyBands(); 
 
         // Call this is you want to get the average amplitude
-        calculateAverageAmplitude();        
-       
-        bloom.render();
-      
+        //will pulse an object with music volume
+        calculateAverageAmplitude();    
+
+        switch(mode)
+        {
+            case 1:
+                background(0);
+                bloom.render();
+            break;
+
+            case 2:
+                background(0);
+                kal.render(); 
+            break;
+
+            case 3:
+                background(0);
+                spiral.render();
+            break;
+
+            case 4:
+                background(0);
+                cube.render();
+            break;
+        }
+        
     }   
     
+    public void keyPressed() 
+    {
+		if (key >= '0' && key <= '9') 
+        {
+			mode = key - '0';
+		}
+	}
 }
