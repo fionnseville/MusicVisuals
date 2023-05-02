@@ -36,7 +36,6 @@ public class Spiral extends Poly{
       v.rotate(-ProjectVisual.radians(a));
       v.noStroke();
       v.pushMatrix();
-      //v.noStroke();
       
       for (int i=0; i <num; i++){ //used for drawing the circles and to allow for rotation in positive direction
         if(v.beat.isKick()){
@@ -57,9 +56,9 @@ public class Spiral extends Poly{
       v.popMatrix();
       
       v.pushMatrix();
-      for (int i=0; i <num; i++){ //used for drawing the circles and to allow for rotation in positive direction
+      for (int i=0; i <num; i++){ //used for drawing the circles and to allow for rotation in negative direction
         
-        if(v.beat.isKick()){
+        if(v.beat.isKick()){ //changes colour range if a kick drum is detected in the song
           cRange = 2000;
         }
         else{
@@ -70,16 +69,16 @@ public class Spiral extends Poly{
           //v.fill(v.getAudioBuffer().get(i)*i*i*i,150,250);
           v.fill(c,150,250);
           v.scale(0.95f); //0.95-og //.98 // 0.5f //0.8
-          v.rotate(-ProjectVisual.radians(angle)/2); //reverses angle of rotation // /2
+          v.rotate(-ProjectVisual.radians(angle)/2); //reverses angle of rotation
           v.ellipse(x, 0, diameter, diameter); //first two x,y second width height
         
       }
       v.popMatrix();
-      
+        
 
     }
 
-    angle+=(PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 1f));
+    angle+=(PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 1f)); //maps the rotation speed to the smoothedAmplitude
       
   }
 

@@ -10,7 +10,7 @@ public class ProjectVisual extends Visual {
 
     public void settings(){
 		//size(1024, 1024, P3D);
-        fullScreen(SPAN);
+        fullScreen(P3D,SPAN);
 	}
 
 	public void setup(){
@@ -27,6 +27,8 @@ public class ProjectVisual extends Visual {
    
     Poly spiral = new Spiral(this);
     Poly bloom = new Bloom(this);
+
+    Poly thing;
 
 	public void draw(){
     
@@ -46,7 +48,7 @@ public class ProjectVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
        
-        spiral.render();
+        bloom.render();
       
     }   
     
