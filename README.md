@@ -31,10 +31,32 @@ This uses two for loops,each of which contribute a different aspect to the spira
 ### Bloom.java:
 This visual uses one for loop to draw rectangles to the screen. These rectangles are synced to the music using the SmoothedAmplitude. These rectangles are then rotated, in sync to the music, and its this rotation that creates the flower like design seen. To make pistil at the centre of the flower, I set the hue to be the audiobuffer.get(i). This synced the colour of the centre of the flower to the music whilst creating a unifrom colour for the rest of the flower. To create the darker edges of the flower, I used map to allow for the audiobuffer size and the colour range to change 'i'. All of this was scaled and the same beat kick function used in Spiral.java was used to change the colour range.
 
+## LILJA:
+### Kalidascope:
+This visual contains a series of octagons positioned in a circle. These octagons all create one single shape. This is done using TWO_PI and sin and cos.
+The shape is then rotated according to the frame count.
+On each beat the stroke weight increases and the entire shape beats outwards.
+ 
+### Cubes:
+This visual contains several 3D boxes converged in the centre. At first the shape is large, filling up the screen and it gradually gets smaller until it stays a specific size. Surrounding these boxes are rectangles that are being ''sucked'' into the centre, imitating a black hole. The idea was that the cube structure is pulling all the rectangles into it. There are also small circles that surround the boxes and slowing fall out from it.
+This visual is done by using a timer and lerp function to set the size change of the boxes.
+The position of the boxes are set on angles so that they are not piled on top of one another. 
+The shape is rotated and the angle is incremented so that there is constant movement.
+
 # What I am most proud of in the assignment
 
 ## CATHAL:
-The part of this assignment I'm most proud of would have to be setting up the files to use polymorphism. As much fun as it was creating the spiral and figuring out the maths for it and the bloom visual, I have always been quite good at trigonometry, so I don't feel I learned as much from those as I did with the polymorphism. Before this assignment, I had no exposure to polymorphism in code and had no knowledge of how to implement it. However, after plenty of trial and error as well as tons of research, I managed to implement it perfectly and ensured that it was simple to use for the other members in my group. It left me feeling satisfied as I managed to do something that I previously would'nt have tried doing because I thought it'd be too difficult. I feel like if I needed to use polymorphism anywhere in the future, I'd be able to implement it with no hassle.
+The part of this assignment I'm most proud of would have to be setting up the files to use polymorphism. As much fun as it was creating the spiral and figuring out the maths for it and the bloom visual, I have always been quite good at trigonometry, so I don't feel I learned as much from those as I did with the polymorphism. Before this assignment, I had no exposure to polymorphism in code and had no knowledge of how to implement it. However, after plenty of trial and error as well as tons of research, I managed to implement it perfectly and ensured that it was simple to use for the other members in my group. It left me feeling satisfied as I managed to do something that I previously wouldn't have tried doing because I thought it'd be too difficult. I feel like if I needed to use polymorphism anywhere in the future, I'd be able to implement it with no hassle.
+
+##LILJA:
+I am most proud of the cubic visual. I spent awhile changing around the variables and trying different things to get to the shape I was happy with. I enjoyed playing around with 3D shapes and am quite proud how it turned out.
+
+#What I Learned:
+## CATHAL:
+I learned quite a lot in this assignment. As I said earlier, I learned a lot about how polymorphism works and how to implement it for a project like this, but I also learned how to use Git and GitHub to manage a project like this. I'd never used Git or GitHub before this module so I had no experience with it going in. However, I now feel quite comfortable using it and now know how to solve merge conflicts and deal with pull requests. I also learned a great deal more about processing and the ways it can be used to create art. Finally, I learned that theres a limit on how many times you can hear Stayin Alive before it gets a bit annoying.
+
+## LILJA:
+During the project I was able to see the effects of maths visualised on screen. It was interesting to see how different maths functions behaved visually and I learned a lot from it.
 
 # Markdown Tutorial
 
