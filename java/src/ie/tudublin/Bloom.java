@@ -15,8 +15,7 @@ public class Bloom extends Poly{
 
     @Override
     public void render() {
-        
-        v.colorMode(PApplet.RGB); //looks better for envisioned result
+
         v.background(0);
         v.strokeWeight(15); //different thicknesses of rect produce different resulting flower-esque patterns
         float cRange;//colour range
@@ -65,7 +64,6 @@ public class Bloom extends Poly{
         x += (PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 2f));
         y += (PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 2f));
         angle+=(PApplet.map(v.getAmplitude(), 0, 1.0f, 0, 2f));
-
     }
     
 }

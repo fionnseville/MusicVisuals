@@ -76,7 +76,6 @@ public class Spiral extends Poly{
       }
       v.popMatrix();
       
-
     }
 
     angle+=(PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 1f));
@@ -84,5 +83,5 @@ public class Spiral extends Poly{
   }
 
     
-
+    
 }
