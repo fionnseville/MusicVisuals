@@ -10,8 +10,9 @@ public class ProjectVisual extends Visual {
     private int mode = 0;
 
     public void settings(){
-		size(1024, 1024, P3D);
-        fullScreen();
+		//size(1024, 1024, P3D);
+        fullScreen(SPAN,P3D);
+
 	}
 
 	public void setup(){
@@ -20,7 +21,7 @@ public class ProjectVisual extends Visual {
         rectMode(CENTER); 
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
         beat = new BeatDetect(getAudioPlayer().bufferSize(), getAudioPlayer().sampleRate());
-        beat.setSensitivity(300);
+        beat.setSensitivity(10);
         bl = new BeatListener(beat, getAudioPlayer());
 		startListening();
         colorMode(HSB, 360, 100, 100);
