@@ -48,10 +48,10 @@ The shape is rotated and the angle is incremented so that there is constant move
 ## CATHAL:
 The part of this assignment I'm most proud of would have to be setting up the files to use polymorphism. As much fun as it was creating the spiral and figuring out the maths for it and the bloom visual, I have always been quite good at trigonometry, so I don't feel I learned as much from those as I did with the polymorphism. Before this assignment, I had no exposure to polymorphism in code and had no knowledge of how to implement it. However, after plenty of trial and error as well as tons of research, I managed to implement it perfectly and ensured that it was simple to use for the other members in my group. It left me feeling satisfied as I managed to do something that I previously wouldn't have tried doing because I thought it'd be too difficult. I feel like if I needed to use polymorphism anywhere in the future, I'd be able to implement it with no hassle.
 
-##LILJA:
+## LILJA:
 I am most proud of the cubic visual. I spent awhile changing around the variables and trying different things to get to the shape I was happy with. I enjoyed playing around with 3D shapes and am quite proud how it turned out.
 
-#What I Learned:
+# What I Learned:
 ## CATHAL:
 I learned quite a lot in this assignment. As I said earlier, I learned a lot about how polymorphism works and how to implement it for a project like this, but I also learned how to use Git and GitHub to manage a project like this. I'd never used Git or GitHub before this module so I had no experience with it going in. However, I now feel quite comfortable using it and now know how to solve merge conflicts and deal with pull requests. I also learned a great deal more about processing and the ways it can be used to create art. Finally, I learned that theres a limit on how many times you can hear Stayin Alive before it gets a bit annoying.
 
