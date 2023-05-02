@@ -68,8 +68,8 @@ public class ProjectVisual extends Visual {
         //spiral.render();
         //graves.render();
         //cubes.render();
-        //cubes2.render();
-        sins.render();
+        cubes2.render();
+        //sins.render();
         //waves.render();
     }   
     
