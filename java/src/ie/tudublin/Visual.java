@@ -19,7 +19,7 @@ public abstract class Visual extends PApplet
 
 	private Minim minim;
 	private AudioInput ai;
-	 AudioPlayer ap;
+	AudioPlayer ap;
 	private AudioBuffer ab;
 	private FFT fft;
 	BeatDetect beat;
@@ -37,7 +37,6 @@ public abstract class Visual extends PApplet
 		this.beat = beat;
 	}
 
-	BeatDetect beat;
 
 	public void startMinim() 
 	{
