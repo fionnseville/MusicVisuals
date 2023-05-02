@@ -1,9 +1,4 @@
-package ie.tudublin;
-
-import javax.print.attribute.standard.PrinterMessageFromOperator;
-
 import processing.core.PApplet;
-import processing.core.PVector;
 
 public class Spiral extends Poly{
 
@@ -74,8 +69,7 @@ public class Spiral extends Poly{
         
       }
       v.popMatrix();
-        
-
+       
     }
 
     angle+=(PApplet.map(v.getSmoothedAmplitude(), 0, 1.0f, 0, 1f)); //maps the rotation speed to the smoothedAmplitude

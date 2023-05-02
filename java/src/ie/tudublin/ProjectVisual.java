@@ -1,5 +1,14 @@
 package ie.tudublin;
 
+import ddf.minim.Minim;
+import ddf.minim.analysis.BeatDetect;
+import javazoom.jl.player.Player;
+import processing.core.PImage;
+import processing.core.PShape;
+
+public class ProjectVisual extends Visual {
+
+
 import java.util.ArrayList;
 
 
@@ -11,7 +20,6 @@ public class ProjectVisual extends Visual {
     Poly play;
 
     public void settings(){
-		//size(1024, 1024, P3D);
         fullScreen(P3D,SPAN);
 	}
 
@@ -20,14 +28,32 @@ public class ProjectVisual extends Visual {
 		startMinim();
         rectMode(CENTER); 
 		loadAudio("Bee Gees - Stayin' Alive (Official Music Video).wav");
+        beat = new BeatDetect(ap.bufferSize(),ap.sampleRate());
+        //eye = loadShape("eyeball.obj");
+        //grave = loadShape("gravestone.obj");
+        //texture = loadImage("gravestone.mtl");
+        noiseSeed(0l);
+
         beat = new BeatDetect(getAudioPlayer().bufferSize(), getAudioPlayer().sampleRate());
         beat.setSensitivity(10);
         bl = new BeatListener(beat, getAudioPlayer());
         play = new Bloom(this);
-		startListening();
+		    startListening();
         colorMode(HSB, 360, 100, 100);
 	}
+    
+    float distance = 0;
+    float distanceChange = 0.001f;
 
+
+    Poly spiral = new Spiral(this);
+    Poly spiral2 = new Spiral2(this);
+    Poly graves = new Grave(this);
+    Poly cubes = new Cubesquared(this);
+    Poly cubes2 =new Cubesquared2(this);
+    Poly sins = new SinWaves(this);
+    Poly waves= new WaveyVisual(this);
+=======
     
     public void keyPressed() {
     
@@ -67,9 +93,11 @@ public class ProjectVisual extends Visual {
         }
         
     }    
-       
+
 
 	public void draw(){
+
+        stroke(255,255,255);
     
         background(0);
         try
@@ -86,6 +114,10 @@ public class ProjectVisual extends Visual {
         calculateFrequencyBands(); 
 
         // Call this is you want to get the average amplitude
+
+        calculateAverageAmplitude();        
+       
+      
         //will pulse an object with music volume
         calculateAverageAmplitude();    
 
@@ -95,3 +127,4 @@ public class ProjectVisual extends Visual {
     
     
 }
+    
