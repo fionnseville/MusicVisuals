@@ -2,12 +2,12 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+
 import ddf.minim.analysis.BeatDetect;
 
 public class ProjectVisual extends Visual {
 
     private int mode = 0;
-    float start = millis();
 
     public void settings(){
 		size(1024, 1024, P3D);
@@ -26,10 +26,9 @@ public class ProjectVisual extends Visual {
         colorMode(HSB, 360, 100, 100);
 	}
 
-    Poly play;
-    //Poly spiral = new Spiral(this);
+    Poly spiral = new Spiral(this);
     Poly kal = new kalidascope(this);
-    //Poly bloom = new Bloom(this);
+    Poly bloom = new Bloom(this);
     Poly cube = new Cubes(this);
 
 
@@ -53,14 +52,36 @@ public class ProjectVisual extends Visual {
         //will pulse an object with music volume
         calculateAverageAmplitude();    
 
+        switch(mode)
+        {
+            case 1:
+                background(0);
+                bloom.render();
+            break;
 
-        //total = 270000
-        //38571
+            case 2:
+                background(0);
+                kal.render(); 
+            break;
+
+            case 3:
+                background(0);
+                spiral.render();
+            break;
+
+            case 4:
+                background(0);
+                cube.render();
+            break;
+        }
         
-       //play = new Bloom(this);
-
-        //kal.render(); 
-        //cube.render();
     }   
     
+    public void keyPressed() 
+    {
+		if (key >= '0' && key <= '9') 
+        {
+			mode = key - '0';
+		}
+	}
 }
