@@ -8,6 +8,7 @@ import ddf.minim.analysis.BeatDetect;
 public class ProjectVisual extends Visual {
 
     private int mode = 0;
+    Poly play;
 
     public void settings(){
 		//size(1024, 1024, P3D);
@@ -22,13 +23,51 @@ public class ProjectVisual extends Visual {
         beat = new BeatDetect(getAudioPlayer().bufferSize(), getAudioPlayer().sampleRate());
         beat.setSensitivity(10);
         bl = new BeatListener(beat, getAudioPlayer());
+        play = new Bloom(this);
 		startListening();
         colorMode(HSB, 360, 100, 100);
 	}
 
-    Poly spiral = new Spiral(this);
-    Poly kal = new kalidascope(this);
-    Poly bloom = new Bloom(this);
+    
+    public void keyPressed() {
+    
+        if (key == ' ') 
+        {
+            if(getAudioPlayer().isPlaying()){
+                getAudioPlayer().pause(); //pauses the song
+            }
+            else{
+                getAudioPlayer().loop(); //starts the song playing again from the point it left off
+            }
+        }
+        
+        if (key == '1')
+        {
+            play = new Bloom(this);
+        }
+        
+        if (key == '2')
+        {
+            play = new Cubes(this);
+        }
+
+        if ( key == '3')
+        {
+            play = new kalidascope(this);
+        }
+
+        if (key =='4')
+        {
+            play = new Spiral(this);
+        }
+
+        if(key =='r' || key =='R'){ //allows for the song to be  started again from the beginning
+            getAudioPlayer().cue(0);
+            startListening();
+        }
+        
+    }    
+       
 
 	public void draw(){
     
@@ -50,36 +89,9 @@ public class ProjectVisual extends Visual {
         //will pulse an object with music volume
         calculateAverageAmplitude();    
 
-        switch(mode)
-        {
-            case 1:
-                background(0);
-                bloom.render();
-            break;
-
-            case 2:
-                background(0);
-                kal.render(); 
-            break;
-
-            case 3:
-                background(0);
-                spiral.render();
-            break;
-
-            case 4:
-                background(0);
-                cube.render();
-            break;
-        }
+        play.render();
         
     }   
     
-    public void keyPressed() 
-    {
-		if (key >= '0' && key <= '9') 
-        {
-			mode = key - '0';
-		}
-	}
+    
 }
